@@ -1,0 +1,12 @@
+# config/locales/views/books/ja.yml
+
+  ja:
+    cds:
+      new:
+        title: 新規CDコレクション
+      show:
+        price: 価格
+        price_yen: "¥%{price}"
+        artist_name: アーティスト名
+        description: CDの詳細説明
+        genre_id: ジャンルID

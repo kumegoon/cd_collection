@@ -1,0 +1,13 @@
+<!-- app/views/cds/show.html.erb -->
+
+  <div class="col-md-10 offset-md-1 mt-5">
+    <h2><%= @cd.title %></h2>
+    <ul>
+      <li><b><%= t '.artist_name' %>: </b><%= @cd.artist_name %></li>
+      <li><b><%= t '.price' %>: </b> t('.price_yen', price: <%= number_with_delimiter @cd.price %></li>
+      </ul>
+    <hr>
+    <h4><%= t '.description' %></h4>
+    <%= simple_format @cd.description %>
+    <h2><b><%= t '.genre_id' %>:   <%= @cd.genre_id %></b>
+  </div>
