@@ -1,13 +1,43 @@
 <!-- app/views/cds/show.html.erb -->
+<div class="col-md-10 offset-md-1 mt-5">
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <%= show_cd_image @cd %>
+    </div>
+    <div class="col-md-8">
+      <h2><%= @cd.title %></h2>
+      <ul>
+        <li><b><%= t '.artist_name' %>: </b><%= @cd.artist_name %></li>
+        <li><b><%= t '.price' %>: </b> <%= t('.price_yen' , price: (number_with_delimiter @cd.price)) %></li>
+        <li><b><%= t ".gnere" %>: </b><%= @cd.genre&.name %></li>
 
-  <div class="col-md-10 offset-md-1 mt-5">
-    <h2><%= @cd.title %></h2>
-    <ul>
-      <li><b><%= t '.artist_name' %>: </b><%= @cd.artist_name %></li>
-      <li><b><%= t '.price' %>: </b> t('.price_yen', price: <%= number_with_delimiter @cd.price %></li>
       </ul>
-    <hr>
-    <h4><%= t '.description' %></h4>
-    <%= simple_format @cd.description %>
-    <h2><b><%= t '.genre_id' %>:   <%= @cd.genre_id %></b>
+    </div>
+  </div>
+  <hr>
+  <h4><%= t '.description' %></h4>
+  <%= simple_format @cd.description %>
+  <%= link_to t('.edit'), edit_cd_path(@cd), class: "btn btn-primary" %>
+  <%= button_tag t(".delete"), class: "btn btn-warning", data: { toggle: "modal", target: "#delete-cd" } %>
+  <%= link_to t('.return'), cds_path, class: "btn btn-secondary" %>
+</div>
+
+  <div class="modal fade" id="delete-cd">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><%= t(".modal_title") %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p><%= t(".question_cd", cd: @cd.title) %></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t(".chancel") %></button>
+          <%= link_to t(".delete_action"), cd_path(@cd), method: :delete, class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
   </div>

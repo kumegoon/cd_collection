@@ -10,6 +10,10 @@ ja:
         price: 価格
         description: 詳細
         genre_id: ジャンルID
+        new_image: 画像
+        image: 画像
+        genre_id: カテゴリー
+        genre: カテゴリー
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

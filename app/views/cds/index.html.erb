@@ -1,0 +1,8 @@
+  <% @cds.each do |cd| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+      <%= show_cd_image cd %>
+      <h4 class="mt-2"><%= link_to cd.title, cd_path(cd) %></h4>
+      <div><%= t(".price_yen", price: (number_with_delimiter cd.price)) %></div>
+      <p><%= truncate(cd.description, length: 20) %></p>
+    </div>
+  <% end %>

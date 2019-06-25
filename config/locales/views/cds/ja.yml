@@ -4,9 +4,23 @@
     cds:
       new:
         title: 新規CDコレクション
+      edit:
+        title: CDコレクション編集
+      form:
+        include_blank: ジャンルを選択して下さい
       show:
         price: 価格
         price_yen: "¥%{price}"
         artist_name: アーティスト名
+        genre: ジャンル
         description: CDの詳細説明
         genre_id: ジャンルID
+        edit: 編集
+        return: 戻る
+        delete: 削除
+        modal_title: CD削除
+        question_cd: "%{cd}を削除しますか？"
+        delete_action: 削除する
+        chancel: キャンセル
+      index:
+        price_yen: "¥%{price}"
