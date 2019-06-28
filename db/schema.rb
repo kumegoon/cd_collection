@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_151151) do
+ActiveRecord::Schema.define(version: 2019_06_28_143212) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -44,6 +44,19 @@ ActiveRecord::Schema.define(version: 2019_06_26_151151) do
     t.index ["genre_id"], name: "index_cds_on_genre_id"
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body", null: false
+    t.integer "evaluation", null: false
+    t.bigint "cd_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cd_id", "user_id"], name: "index_comments_on_cd_id_and_user_id", unique: true
+    t.index ["cd_id"], name: "index_comments_on_cd_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -65,4 +78,6 @@ ActiveRecord::Schema.define(version: 2019_06_26_151151) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cds", "genres"
+  add_foreign_key "comments", "cds"
+  add_foreign_key "comments", "users"
 end

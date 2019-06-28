@@ -1,0 +1,11 @@
+<!-- app/views/reviews/new.html.erb -->
+
+  <div class="col-md-8 offset-md-2 mt-3">
+    <h2 class="text-center"><%= t '.title' %></h2>
+    <div class="mb-3">
+      <%= show_cd_small_image @cd %>
+      <span><%= @cd.title %></span>
+    </div>
+    <hr>
+    <%= render partial: 'form', locals: { cd: @cd,  comment: @comment } %>
+  </div>

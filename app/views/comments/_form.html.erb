@@ -1,0 +1,19 @@
+<!-- app/views/comments/_form.html.erb -->
+
+  <%= form_with model: [cd, comment], local: true do |form| %>
+    <%= render "shared/errors", obj: comment %>
+    <div class="form-group">
+      <%= form.label :evaluation %>
+      <%= form.select :evaluation, Comment.evaluations.values, {}, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :body %>
+      <%= form.text_area :body, rows: 10, class: "form-control" %>
+    </div>
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to t(".back"), cd, class: "btn btn-secondary" %>
+  <% end %>

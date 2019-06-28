@@ -19,6 +19,10 @@
   <%= simple_format @cd.description %>
   <%= link_to t('.edit'), edit_cd_path(@cd), class: "btn btn-primary" %>
   <%= button_tag t(".delete"), class: "btn btn-warning", data: { toggle: "modal", target: "#delete-cd" } %>
+  <% if user_signed_in? %>
+    <%= link_to t(".comment_new"), new_cd_comment_path(@cd), class: "btn btn-info" %>
+  <% end %>
+
   <%= link_to t('.return'), cds_path, class: "btn btn-secondary" %>
 </div>
 

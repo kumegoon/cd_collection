@@ -2,7 +2,7 @@ class CdsController < ApplicationController
   before_action :set_cd, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cds = Cd.all 
+    @cds = Cd.page(params[:page]).per(4)
   end
 
   def new
