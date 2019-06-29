@@ -1,0 +1,20 @@
+<!-- app/views/reviews/_review.html.erb -->
+
+  <div>
+    <div>
+      <% if comment.user.avatar.attached? %>
+        <%= image_tag comment.user.avatar.variant(resize: "60x60"), class: "img-thumbnail" %>
+      <% else %>
+        <%= image_tag "no_image.png", class: "img-thumbnail", width: 60 %>
+      <% end %>
+      <span><%= comment.user.nick_name %></span>
+    </div>
+    <div>
+      <div>
+        <span class="text-warning"><%= "★" * comment.evaluation %></span>
+        <b><%= link_to comment.title, cd_comment_path(comment.cd, comment) %></b>
+      </div>
+      <small><%= comment.created_at.strftime("%Y年%m月%d日") %></small>
+    </div>
+    <%= simple_format comment.body %>
+  </div>

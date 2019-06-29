@@ -24,6 +24,8 @@
   <% end %>
 
   <%= link_to t('.return'), cds_path, class: "btn btn-secondary" %>
+  <hr>
+  <%= render partial: "comments/comment", collection: @cd.comments %>
 </div>
 
   <div class="modal fade" id="delete-cd">
