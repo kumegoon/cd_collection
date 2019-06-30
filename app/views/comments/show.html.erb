@@ -26,7 +26,7 @@
     <%= link_to t(".back"), @cd, class: "btn btn-secondary" %>
   </div>
 
-  <div class="modal fade" id="delete-review">
+  <div class="modal fade" id="delete-comment">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -36,11 +36,11 @@
           </button>
         </div>
         <div class="modal-body">
-          <p><%= t(".question_review", review: @review.title) %></p>
+          <p><%= t(".question_comment", comment: @comment.title) %></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t(".chancel") %></button>
-          <%= link_to t(".delete_action"), book_review_path(@book, @review), method: :delete, class: "btn btn-danger" %>
+          <%= link_to t(".delete_action"), cd_comment_path(@cd, @comment), method: :delete, class: "btn btn-danger" %>
         </div>
       </div>
     </div>
